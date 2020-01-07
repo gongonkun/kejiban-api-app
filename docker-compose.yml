@@ -5,6 +5,7 @@ services:
     command: /bin/sh -c "rm -f ./tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -p 3000"
     volumes:
       - .:/app
+    container_name: kejiban_api_web
     ports:
       - "3000:3000"
     depends_on:
@@ -15,7 +16,7 @@ services:
     image: postgres:latest
     volumes:
       - db-volume:/var/lib/postgresql/data
-    container_name: db
+    container_name: kejiban_api_db
     environment:
       - "POSTGRES_USER=root"
       - "POSTGRES_PASSWORD=root"

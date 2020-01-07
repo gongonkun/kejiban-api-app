@@ -12,3 +12,6 @@ COPY ./Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
 COPY ./ /app
+
+RUN chmod 744 /app/startup.sh
+CMD ["/app/startup.sh"]
